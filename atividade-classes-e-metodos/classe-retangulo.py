@@ -1,3 +1,5 @@
+import math
+
 class Retangulo:
     def __init__(self, ladoA, ladoB):
         self.ladoA = ladoA
@@ -11,13 +13,37 @@ class Retangulo:
         return f"Lado A: {self.ladoA}\nLado B: {self.ladoB}"
 
     def calcularArea(self):
-        return f"Área: {self.ladoA * self.ladoB}"
+        return self.ladoA * self.ladoB
 
     def calculaPerimetro(self):
-        return f"Perímetro: {self.ladoA * 2 + self.ladoB * 2}"
-    
+        return self.ladoA * 2 + self.ladoB * 2
+
+
 # Rodar com ctrl + F5
 
-retangulo = Retangulo(input("Informe o lado A: "), input("Informe o lado B: "))
+area = Retangulo(
+    float(input("Informe o lado A (em metros): ")),
+    float(input("Informe o lado B (em metros): ")),
+)
 
-print(retangulo.retornarLados())
+print(area.retornarLados())
+
+pisos = Retangulo(
+    float(input("Informe o comprimento do piso (em metros): ")),
+    float(input("Informe a largura do piso (em metros): ")),
+)
+
+print(pisos.retornarLados())
+
+rodape = Retangulo(
+    float(input("Informe a altura do rodapé (em metros): ")),
+    area.calculaPerimetro(),
+)
+
+pisosArea = area.calcularArea() / pisos.calcularArea()
+pisosRodape = (rodape.ladoA * rodape.ladoB) / pisos.calcularArea()
+
+
+print(
+    f"Pisos necessários para cobrir {area.calcularArea()}m²: {pisosArea} \nPisos necessários para os rodapés: {pisosRodape} \nTotal de pisos necessários: {int(math.ceil(pisosRodape + pisosArea))}"
+)
