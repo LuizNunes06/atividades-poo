@@ -15,7 +15,7 @@ class Pessoa:
             else:
                 self.altura = (21 - self.idade) * 0.005
 
-            print(f"Agora a altura é: {self.idade} ")
+            print(f"Agora a altura é: {self.altura} ")
 
         self.idade += anos
         print(f"Nova idade: {self.idade}")
@@ -67,6 +67,7 @@ while escolha != 0:
     if escolha == 4:
         pessoa.crescer(float(input(f"Quantos centimetros {pessoa.nome} cresceu? ")))
 
-    escolha = input(
+    escolha = int(input(
         f"O que acontecerá com {pessoa.nome}? \n\n1- Envelhecer.\n2- Engordar.\n3- Emagrecer.\n4- Crescer.\n0- Nada, encerrar programa.\n\nOpção escolhida: "
-    )
+    ))
+
