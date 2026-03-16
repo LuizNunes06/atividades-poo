@@ -34,7 +34,7 @@ class Tv:
         print("\n|-------- Lista de canais --------|\n")
 
         for canal in self.canais:
-            print(f"{canal:^35}")
+            print(f"|{canal:^33}|")
 
 
 tv = Tv(30)
