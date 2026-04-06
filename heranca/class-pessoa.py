@@ -7,17 +7,21 @@ class Pessoa():
     def getPessoa(self):
         print(f"Nome: {self.nome} \nIdade: {self.idade} \n\n")
 
-class Estudante(Pessoa):
+class Funcionario(Pessoa):
 
-    def __init__(self, nome, idade, nota):
+    def __init__(self, nome, idade, salario):
         super().__init__(nome, idade)
-        self.nota = nota
+        self.salario = salario
 
-    def getEstudante(self):
-        print(f"Nome: {self.nome} \nIdade: {self.idade} \nNota: {self.nota} \n\n")
+    def aumento(self, porcentagem):
+        self.salario += self.salario * (porcentagem / 100)
+
+    def getFuncionario(self):
+        print(f"Nome: {self.nome} \nIdade: {self.idade} \nSalário: R${self.salario:.2f} \n\n")
 
 pessoa = Pessoa("Luiz", 20)
-estudante = Estudante("Isa", 18, 9)
+funcionario = Funcionario("Isa", 18, 2500)
+funcionario.aumento(10)
 
 pessoa.getPessoa()
-estudante.getEstudante()
+funcionario.getFuncionario()
